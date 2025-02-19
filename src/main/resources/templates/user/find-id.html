@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>아이디 찾기</title>
+    <link rel="stylesheet" href="/css/register.css">
+    <link href="https://fonts.cdnfonts.com/css/jetbrains-mono" rel="stylesheet">
+</head>
+<body>
+
+    <div class="register-container">
+        <div>
+            <h1>아이디 찾기</h1>
+        </div>
+        <div>
+            <p>회원가입 당시에 입력했던 질문과 답을 입력해주세요</p>
+        </div>
+        <form action="/login/process" method="post">
+            <div>
+                <select id="question" name="question" >
+                    <option value="">보안 질문을 선택하세요</option>
+                    <option value="q1">어릴 적 살던 동네는?</option>
+                    <option value="q2">초등학교 때 가장 친했던 친구의 이름은?</option>
+                    <option value="q3">처음 키운 반려동물의 이름은?</option>
+                    <option value="q4">가장 기억에 남는 선생님의 성함은?</option>
+                </select>
+            </div>
+
+            <div>
+                <input type="text" id="answer" name="answer" placeholder="질문에 대한 답변 (한글 20자 이내) (아이디 찾기용)"
+                       pattern="[가-힣]+" maxlength="20"  title="한글만 입력 가능합니다." >
+            </div>
+            <button type="submit">전송</button>
+        </form>
+    </div>
+</body>
+</html>

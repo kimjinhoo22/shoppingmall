@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/information.css">
+    <title>개인정보 동의서</title>
+</head>
+<body>
+<div class="container">
+    <h1>개인정보 동의서</h1>
+    <p>본 동의서는 귀하의 개인정보 수집 및 이용에 대한 내용을 담고 있습니다. 아래 내용을 충분히 읽으신 후 동의 여부를 선택해 주시기 바랍니다.</p>
+
+    <div class="section">
+        <h2 class="toggle">1. 개인정보 수집 항목</h2>
+        <div class="content">
+            <ul>
+                <li>이름</li>
+                <li>이메일 주소</li>
+                <li>전화번호</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="toggle">2. 개인정보 이용 목적</h2>
+        <div class="content">
+            <p>귀하의 개인정보는 다음과 같은 목적으로 수집됩니다:</p>
+            <ul>
+                <li>서비스 제공 및 관리</li>
+                <li>고객 상담 및 지원</li>
+                <li>마케팅 및 광고</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="toggle">3. 개인정보의 제3자 제공</h2>
+        <div class="content">
+            <p>귀하의 개인정보는 아래의 경우에 제3자에게 제공될 수 있습니다:</p>
+            <ul>
+                <li>법적 의무를 이행하기 위해</li>
+                <li>서비스 제공에 필요한 경우 (예: 배송업체)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="toggle">4. 개인정보 보유 및 이용 기간</h2>
+        <div class="content">
+            <p>귀하의 개인정보는 수집 및 이용 목적이 달성된 후 즉시 파기됩니다. 단, 관련 법률에 의해 보존해야 하는 경우에는 해당 기간 동안 보관됩니다.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="toggle">5. 이용자의 권리</h2>
+        <div class="content">
+            <p>귀하는 언제든지 아래의 권리를 행사할 수 있습니다:</p>
+            <ul>
+                <li>개인정보 열람 요청</li>
+                <li>개인정보 수정 요청</li>
+                <li>개인정보 삭제 요청</li>
+                <li>동의 철회 요청</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="toggle">6. 연락처 정보</h2>
+        <div class="content">
+            <p>개인정보 보호 관련 문의는 아래의 연락처로 해주시기 바랍니다:</p>
+            <p>이메일: <a href="mailto:privacy@example.com">wlsgnwkd22@naver.com</a></p>
+            <p>전화번호: 010-2212-9624</p>
+        </div>
+    </div>
+
+    <h2>동의 여부</h2>
+    <div class="checkbox-container">
+        <label>
+            <input type="checkbox" id="all-agree" onclick="toggleAll(this)">
+            전체 동의
+        </label>
+        <label>
+            <input type="checkbox" class="individual-checkbox" required>
+            본인은 개인정보 수집 및 이용에 동의합니다.
+        </label>
+    </div>
+
+    <button type="submit">제출</button>
+</div>
+
+<script>
+    document.querySelectorAll('.toggle').forEach(toggle => {
+        toggle.addEventListener('click', function () {
+            const content = this.nextElementSibling;
+            content.classList.toggle('show');
+            this.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    function toggleAll(source) {
+        const checkboxes = document.querySelectorAll('.individual-checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = source.checked;
+        });
+    }
+</script>
+</body>
+</html>

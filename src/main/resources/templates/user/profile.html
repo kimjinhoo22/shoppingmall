@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>회원 정보 수정</title>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 450px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 22px;
+      margin-bottom: 30px;
+      color: #222;
+    }
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #ddd;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: #777;
+    }
+    .profile-user{
+      font-size: 14px;
+      color: #777;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    label {
+      font-size: 14px;
+      font-weight: bold;
+      display: block;
+      color: #555;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px;
+      background-color: #f8f8f8;
+      box-sizing: border-box;
+    }
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      width: 100%;
+    }
+    button {
+      width: 48%;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .save-btn {
+      background-color: #ccc;
+      color: white;
+    }
+    .save-btn:not(:disabled) {
+      background-color: #4CAF50; /* 활성화 시 색상 */
+      color: white;
+    }
+
+    .cancel-btn {
+      background-color: #ddd;
+      color: #333;
+    }
+    .cancel-btn:hover {
+      background-color: #bbb;
+    }
+    .error-message{
+      font-size: 12px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>회원 정보 수정</h1>
+  <div>
+    <div class="profile-img">사진</div>
+    <p th:text="${userInfo.userId}" class="profile-user"></p>
+  </div>
+  <form th:action="@{/user/profile/update}" th:object="${userInfo}" method="post" id="profileUpdateForm">
+    <div class="form-group">
+      <label for="nickname">회원 닉네임</label>
+      <input type="text" id="nickname" th:field="*{nickname}">
+      <p class="error-message" id="nickname-error"></p>
+    </div>
+    <div class="form-group">
+      <label for="email">회원 이메일</label>
+      <input type="email" id="email" th:field="*{email}">
+      <p class="error-message" id="email-error"></p>
+    </div>
+    <div class="form-group">
+      <label for="address">회원 주소</label>
+      <input type="text" id="address" th:field="*{address}">
+    </div>
+    <div class="button-group">
+      <button type="submit" class="save-btn" disabled>적용</button>
+      <button type="button" class="cancel-btn" onclick="window.history.back()">취소</button>
+    </div>
+  </form>
+</div>
+<script type="module" src="/js/profileUpdate.js"></script>
+</body>
+</html>
